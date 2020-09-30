@@ -1,0 +1,76 @@
+.sign-up {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.sign-up > img {
+    margin-top: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.sign-up > span {
+    color: #F6F8FA;
+    text-align: center;
+}
+
+.title {
+    margin: 10px 0;
+}
+
+.login-btns {
+    text-align: center;
+}
+
+.create-n-reset {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-top: 10px;
+    justify-content: space-between;
+    color: #F6F8FA;
+}
+
+.create-n-reset >a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* select {
+    height: 50px;
+    font-size: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px;
+    background: none;
+    padding: 0px 10px 0px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid white;
+    margin: 15px 0;
+  } */
+  /* For IE <= 11 */
+  /* select::-ms-expand {
+    display: none; 
+  }
+
+  @media screen and (max-width: 768px) {
+    select {
+        border-bottom: none;
+        width: 80%;
+    }
+  }
+
+  option {
+      background-color: black;
+      
+  } */
