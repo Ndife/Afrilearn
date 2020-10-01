@@ -19,28 +19,28 @@ function Cards() {
               <CardItem
                 alt="WAEC image"
                 src="//adminpanel.myafrilearn.com/exam_images/FIL5cdd81ff822d929919720190516153007.png"
-                text="Explore the hidden waterfall deep inside the Amazon Jungle"
+                text="Explore the hidden secret behind more than 7 A1 in waec"
                 label="WAEC"
-                path="/services"
+                path="/"
               />
               <CardItem
                 src="//adminpanel.myafrilearn.com/exam_images/FIL5cdd8eaf143ae40466520190516162415.png"
-                text="Travel through the Islands of Bali in a Private Cruise"
+                text="Explore the hidden secret behind more than 7 A1 in NECO"
                 label="NECO"
-                path="/services"
+                path="/"
               />
               <CardItem
                 src="//adminpanel.myafrilearn.com/exam_images/FIL5cdd82202903629090720190516153040.png"
-                text="Experience Football on Top of the Himilayan Mountains"
+                text="Explore the hidden secret behind more than 7 A1 in Jamb"
                 label="JAMB/UME"
-                path="/products"
+                path="/"
               />
               <span className="past-questions-hidden">
                 <CardItem
                   src="//adminpanel.myafrilearn.com/exam_images/FIL5cdd8e76cd9b719027320190516162318.png"
-                  text="Experience Football on Top of the Himilayan Mountains"
+                  text="Explore the hidden secret behind more than 7 A1 in waec"
                   label="GCE"
-                  path="/products"
+                  path="/"
                 />
               </span>
             </ul>
@@ -50,24 +50,24 @@ function Cards() {
             <h2 id="hidden__h2">Professional Exams</h2>
             <CardItem
               src="//adminpanel.myafrilearn.com/exam_images/FIL5cdd8e93671ba29584920190516162347.png"
-              text="Experience Football on Top of the Himilayan Mountains"
+              text="Explore the hidden secret behind more than 7 A1 in waec"
               label="ICAN"
-              path="/products"
+              path="/"
             />
             <h2 id="hidden__h2">Universities</h2>
             <CardItem
               src="https://myafrilearn.com/assets/img/afrilearn_logo.png"
-              text="Ride through the Sahara Desert on a guided camel tour"
+              text="Explore the hidden secret behind more than 7 A1 in waec"
               label="Universities"
-              path="/sign-up"
+              path="/"
               id="afrilearn__card"
             />
             <h2 id="hidden__h2">Courses</h2>
             <CardItem
               src="https://myafrilearn.com/assets/img/afrilearn_logo.png"
-              text="Ride through the Sahara Desert on a guided camel tour"
+              text="Explore the hidden secret behind more than 7 A1 in waec"
               label="Courses"
-              path="/sign-up"
+              path="/"
               id="afrilearn__card"
             />
           </ul>
