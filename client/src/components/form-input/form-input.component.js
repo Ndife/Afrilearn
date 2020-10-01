@@ -5,7 +5,6 @@ import "./form-input.styles.css";
 const FormInput = ({ handleChange, label, value, ...otherProps }) => (
   <div className="group">
     <input
-      required
       className="form-input"
       onChange={handleChange}
       value={value}

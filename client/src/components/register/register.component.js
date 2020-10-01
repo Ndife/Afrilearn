@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 import FormInput from "../form-input/form-input.component";
 import { Button } from "../Button";
 import { Link } from "react-router-dom";
@@ -77,6 +78,7 @@ class RegisterComponent extends React.Component {
             exam: "select exam category",
           });
           swal("Success!", "Registration successful!", "success");
+          this.props.history.push("/");
         } else {
           swal("Faild!", "please ensure to fill all form", "error");
         }
@@ -104,7 +106,8 @@ class RegisterComponent extends React.Component {
         />
         <span>Don't have an account --> Register </span>
 
-        <form className="sign-up-form">
+        <form>
+          <div className="double-col">
           <FormInput
             type="text"
             name="firstname"
@@ -112,6 +115,7 @@ class RegisterComponent extends React.Component {
             label="Firstname"
             handleChange={this.handleChange}
             required
+            id="reg-col-input"
           />
           <FormInput
             type="text"
@@ -121,6 +125,8 @@ class RegisterComponent extends React.Component {
             handleChange={this.handleChange}
             required
           />
+          </div>
+          <div className="double-col">
           <FormInput
             type="email"
             name="email"
@@ -129,14 +135,18 @@ class RegisterComponent extends React.Component {
             handleChange={this.handleChange}
             required
           />
+          
           <FormInput
             type="text"
             name="phone"
             value={phone}
-            label="phone"
+            label="Phone"
             handleChange={this.handleChange}
             required
+            id="reg-col-input"
           />
+          </div>
+          <div className="double-col">
           <FormInput
             type="password"
             name="password"
@@ -144,6 +154,7 @@ class RegisterComponent extends React.Component {
             label="Password"
             handleChange={this.handleChange}
             required
+            id="reg-col-input"
           />
           <FormInput
             type="password"
@@ -153,6 +164,7 @@ class RegisterComponent extends React.Component {
             handleChange={this.handleChange}
             required
           />
+          </div>
           <CustomSelect
             defaultText={exam}
             optionsList={this.state.examCategory}
@@ -186,4 +198,4 @@ class RegisterComponent extends React.Component {
   }
 }
 
-export default RegisterComponent;
+export default withRouter(RegisterComponent);

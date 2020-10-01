@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
@@ -32,6 +33,7 @@ class LoginComponent extends React.Component {
       if (res.data.success) {
         this.setState({ islogin: res.data.token, email: "", password: "" });
         swal("Success!", "login successful!", "success");
+        this.props.history.push("/");
       } else {
         swal("Login Faild!", JSON.stringify(res.data.message), "error");
       }
@@ -89,4 +91,4 @@ class LoginComponent extends React.Component {
   }
 }
 
-export default LoginComponent;
+export default withRouter(LoginComponent);
