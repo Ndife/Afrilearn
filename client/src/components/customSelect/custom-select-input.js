@@ -28,7 +28,7 @@ class CustomSelect extends React.Component {
 
   // This method handles the click that happens outside the
   // select text and list area
-  handleClickOutside = e => {
+  handleClickOutside = (e) => {
     if (
       !e.target.classList.contains("custom-select-option") &&
       !e.target.classList.contains("selected-txt")
@@ -41,7 +41,7 @@ class CustomSelect extends React.Component {
 
   // This method handles the display of option list
   handleListDisplay = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return {
         showOptionList: !prevState.showOptionList
       };
@@ -50,11 +50,15 @@ class CustomSelect extends React.Component {
 
   // This method handles the setting of name in select text area
   // and list display on selection
-  handleOptionClick = e => {
+  handleOptionClick = (e) => {
+    const { name, handleSelect } = this.props;
+    const value = e.target.getAttribute("data-name");
     this.setState({
       defaultSelectText: e.target.getAttribute("data-name"),
       showOptionList: false
     });
+
+    handleSelect(name, value);
   };
 
   render() {
@@ -71,19 +75,19 @@ class CustomSelect extends React.Component {
         {showOptionList && (
           <span className="custom-s-ul">
             <ul className="select-optns">
-            {optionsList.map(option => {
-              return (
-                <li
-                  className="custom-select-option"
-                  data-name={option.name}
-                  key={option.id}
-                  onClick={this.handleOptionClick}
-                >
-                  {option.name}
-                </li>
-              );
-            })}
-          </ul>
+              {optionsList.map((option) => {
+                return (
+                  <li
+                    className="custom-select-option"
+                    data-name={option.name}
+                    key={option.id}
+                    onClick={this.handleOptionClick}
+                  >
+                    {option.name}
+                  </li>
+                );
+              })}
+            </ul>
           </span>
         )}
       </div>

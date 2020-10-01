@@ -1,10 +1,13 @@
 import React from "react";
+import axios from "axios";
 import FormInput from "../form-input/form-input.component";
 import { Button } from "../Button";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
 import "./register.styles.css";
 import CustomSelect from "../customSelect/custom-select-input";
+import { stateCategory, examCategory } from "./state.data";
 
 class RegisterComponent extends React.Component {
   constructor(props) {
@@ -17,44 +20,91 @@ class RegisterComponent extends React.Component {
       email: "",
       password: "",
       confirmPassword: "",
-      defaultStateText: "Select State",
-      defaultExamText: "select exam category",
-      examCategory: [
-        { id: 1, name: "OLevel" },
-        { id: 2, name: "Primary" },
-        { id: 3, name: "Professional" },
-        { id: 4, name: "University" },
-      ]
+      state: "Select State",
+      exam: "select exam category",
+      stateCategory,
+      examCategory,
     };
   }
 
   handleChange = (e) => {
-    const value = 
-    e.target.type === "checkbox" ? e.target.checked : e.target.value
-    this.setState({ ...this.state, [e.target.name]: value });
-    console.log(e.data.name)
+    this.setState({ ...this.state, [e.target.name]: e.target.value });
+  };
+
+  handleSelect = (name, value) => {
+    this.setState({
+      [name]: value,
+    });
   };
 
   handleSubmit = (event) => {
-    // event.preventDefault();
-    // const { firstname, lastname, phone, email, password, confirmPassword, defaultExamText, defaultStateText } = this.state;
-    // if (password !== confirmPassword) {
-    //   alert("Password do not match ");
-    //   return;
-    // }
+    const {
+      firstname,
+      lastname,
+      phone,
+      email,
+      password,
+      confirmPassword,
+      exam,
+      state,
+    } = this.state;
+    
+    if (password !== confirmPassword) {
+      swal("Error!", "Password does not match!", "error");
+      return;
+    }
 
-    console.log(this.state.state)
+    axios
+      .post("user/register", {
+        firstname,
+        lastname,
+        phone,
+        email,
+        password,
+        exam,
+        state,
+      })
+      .then((res) => {
+        if (res.data.success) {
+          this.setState({
+            firstname: "",
+            lastname: "",
+            phone: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+            state: "Select State",
+            exam: "select exam category",
+          });
+          swal("Success!", "Registration successful!", "success");
+        } else {
+          swal("Faild!", "please ensure to fill all form", "error");
+        }
+      });
   };
 
   render() {
-    const { firstname, lastname, phone, email, password, confirmPassword, defaultExamText, defaultStateText } = this.state;
+    const {
+      firstname,
+      lastname,
+      phone,
+      email,
+      password,
+      confirmPassword,
+      exam,
+      state,
+    } = this.state;
 
     return (
       <div className="sign-up">
-        <img src="https://myafrilearn.com/assets/img/afrilearn_logo.png" width="100px" alt="logo" />
+        <img
+          src="https://myafrilearn.com/assets/img/afrilearn_logo.png"
+          width="100px"
+          alt="logo"
+        />
         <span>Don't have an account --> Register </span>
 
-        <form className="sign-up-form" >
+        <form className="sign-up-form">
           <FormInput
             type="text"
             name="firstname"
@@ -103,15 +153,22 @@ class RegisterComponent extends React.Component {
             handleChange={this.handleChange}
             required
           />
-          <CustomSelect defaultText={defaultExamText}
-            optionsList={this.state.examCategory} onClick={this.handleChange} />
-
-          <CustomSelect defaultText={defaultStateText}
-            optionsList={this.state.examCategory}  onClick={this.handleChange} />
+          <CustomSelect
+            defaultText={exam}
+            optionsList={this.state.examCategory}
+            handleSelect={this.handleSelect}
+            name="exam"
+          />
+          <CustomSelect
+            defaultText={state}
+            optionsList={this.state.stateCategory}
+            handleSelect={this.handleSelect}
+            name="state"
+          />
 
           <div className="login-btns">
             <Button
-            onClick={this.handleSubmit}
+              onClick={this.handleSubmit}
               className="btn"
               buttonStyle="btn--outline"
               buttonSize="btn--large"
