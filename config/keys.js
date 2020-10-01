@@ -1,2 +1,3 @@
-const mongoURI = 'mongodb://Ndife:g0ds@w1ll@ds119059.mlab.com:19059/tellabledb'
+const mongoURI = 'mongodb://uche:passw0rd@ds129085.mlab.com:29085/afrilearn'
 module.exports = mongoURI; 
+
