@@ -7,9 +7,14 @@ function Cards() {
     <div className="cards">
       <div className="cards__container">
         <div className="cards__wrapper">
+          <div className="h1__headers">
+            <h2>Professional Exams</h2>
+            <h2>Universities</h2>
+            <h2>Courses</h2>
+          </div>
 
-        <div className="card__title">
-            <h1>Free Past Questions</h1>
+          <div className="card__title">
+            <h2>Free Past Questions</h2>
             <ul className="cards__items">
               <CardItem
                 alt="WAEC image"
@@ -41,18 +46,15 @@ function Cards() {
             </ul>
           </div>
 
-          <div className="h1__headers">
-          <h1>Professional Exams</h1>
-          <h1>Universities</h1>
-          <h1>Courses</h1>
-          </div>
-          <ul className="cards__items">
+          <ul className="hidden__cards__items">
+            <h2 id="hidden__h2">Professional Exams</h2>
             <CardItem
               src="//adminpanel.myafrilearn.com/exam_images/FIL5cdd8e93671ba29584920190516162347.png"
               text="Experience Football on Top of the Himilayan Mountains"
               label="ICAN"
               path="/products"
             />
+            <h2 id="hidden__h2">Universities</h2>
             <CardItem
               src="https://myafrilearn.com/assets/img/afrilearn_logo.png"
               text="Ride through the Sahara Desert on a guided camel tour"
@@ -60,6 +62,7 @@ function Cards() {
               path="/sign-up"
               id="afrilearn__card"
             />
+            <h2 id="hidden__h2">Courses</h2>
             <CardItem
               src="https://myafrilearn.com/assets/img/afrilearn_logo.png"
               text="Ride through the Sahara Desert on a guided camel tour"
@@ -68,8 +71,6 @@ function Cards() {
               id="afrilearn__card"
             />
           </ul>
-
-          
         </div>
       </div>
     </div>
